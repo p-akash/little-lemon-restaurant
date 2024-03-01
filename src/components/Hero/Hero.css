@@ -34,18 +34,18 @@ main p {
 .hero-right {
   display: flex;
   position: relative;
-  justify-content: center;
+  justify-content: right;
   align-items: center;
 }
 
 .hero-right img {
   object-fit: cover;
   border-radius: 16px;
-  width: 30vw;
-  height: 350px;
+  width: 25vw;
+  height: 400px;
   background-color: #f4ce14;
   position: relative;
-  top: 20px;
+  top: 40px;
 }
 
 @media screen and (max-width: 768px) {

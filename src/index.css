@@ -1,6 +1,7 @@
 * {
   margin: 0;
   padding: 0;
+  font-family: "Roboto", "serif";
 }
 
 .container {
@@ -11,7 +12,6 @@
 
 h1 {
   font-size: 60px;
-  font-family: "Markazi Text", serif;
   font-weight: normal;
 }
 
@@ -21,7 +21,6 @@ h4 {
 }
 
 p {
-  font-family: "Karla", sans-serif;
   font-size: 16px;
 }
 
