@@ -25,7 +25,7 @@ function Footer() {
                   <Link
                     to="/"
                     onClick={() => {
-                      scrollTo("#callToAction");
+                      scrollTo("#Hero");
                     }}
                   >
                     <p>Home</p>

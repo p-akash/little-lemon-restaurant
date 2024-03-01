@@ -1,19 +1,20 @@
-import { Routes, Route } from "react-router-dom";
 import Nav from "./components/Navbar/Nav";
 import Footer from "./components/Footer/Footer";
-import BookingConfirmation from "./components/Booking/BookingConfirmation/BookingConfirmation";
-import Homepage from "./pages/Homepage";
-import Booking from "./pages/BookingPage";
+import Hero from "./components/Hero/Hero";
+import About from "./components/About/About";
+import Booking from "./components/Booking/Booking";
+import Specials from "./components/Specials/Specials";
+import Testimonials from "./components/Testimonials/Testimonials";
 
 function App() {
   return (
     <>
       <Nav />
-      <Routes>
-        <Route path="/" element={<Homepage />} />
-        <Route path="/booking" element={<Booking />} />
-        <Route path="/booking/confirmed" element={<BookingConfirmation />} />
-      </Routes>
+      <Hero />
+      <Specials />
+      <Booking />
+      <Testimonials />
+      <About />
       <Footer />
     </>
   );

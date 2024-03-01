@@ -3,12 +3,15 @@ import { useNavigate } from "react-router-dom";
 import image from "../../assets/restauranfood.jpg";
 import "./Hero.css";
 
-function CallToAction() {
+function Hero() {
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    navigate("/booking");
+    const bookingSection = document.getElementById("booking");
+    if (bookingSection) {
+      bookingSection.scrollIntoView({ behavior: "smooth" });
+    }
   };
 
   useEffect(() => {
@@ -23,7 +26,7 @@ function CallToAction() {
     <div className="hero-bg">
       <div className="container">
         <main>
-          <div id="callToAction" className="hero-content">
+          <div id="Hero" className="hero-content">
             <div className="hero-left">
               <h1>Little Lemon</h1>
               <h2>Chicago</h2>
@@ -37,7 +40,7 @@ function CallToAction() {
               </button>
             </div>
             <div className="hero-right">
-              <img src={image} />
+              <img src={image} alt="img"/>
             </div>
           </div>
         </main>
@@ -46,4 +49,4 @@ function CallToAction() {
   );
 }
 
-export default CallToAction;
+export default Hero;

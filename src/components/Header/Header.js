@@ -13,7 +13,7 @@ function Header() {
       <Link
         to="/"
         className="header-img"
-        onClick={() => scrollTo("#callToAction")}
+        onClick={() => scrollTo("#Hero")}
       >
         <img src={logo} alt="Little Lemon logo" />
       </Link>

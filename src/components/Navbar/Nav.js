@@ -50,7 +50,7 @@ function Nav() {
               <Link
                 to="/"
                 onClick={() => {
-                  scrollTo("#callToAction");
+                  scrollTo("#Hero");
                 }}
               >
                 Home

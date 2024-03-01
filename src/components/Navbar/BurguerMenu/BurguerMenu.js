@@ -37,7 +37,7 @@ function BurguerMenu() {
         to="/"
         onClick={() => {
           closeMenu();
-          scrollTo("#callToAction");
+          scrollTo("#Hero");
         }}
         className="nav-item"
       >

@@ -1,109 +1,97 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { submitAPI } from "../../../API";
+import { Grid, TextField, Select, InputLabel, MenuItem, FormControl, Button } from "@mui/material";
+import dayjs from 'dayjs';
+// import { DemoContainer } from '@mui/x-date-pickers/internals/demo';
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import { DateTimePicker } from '@mui/x-date-pickers/DateTimePicker';
+
 import "./BookingForm.css";
 
 function BookingForm({ dispatch, state }) {
-  const [reservationDate, setReservationDate] = useState("");
-  const [reservationTime, setReservationTime] = useState("17:00");
-  const [numberOfGuests, setNumberOfGuests] = useState(1);
-  const [occasion, setOccasion] = useState("Birthday");
-
-  const navigate = useNavigate();
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const reservation = {
-      res_date: reservationDate,
-      res_time: reservationTime,
-      res_guests: numberOfGuests,
-      res_occasion: occasion,
-    };
-    console.log(reservation);
-    const submitResponse = submitAPI(reservation);
-    if (submitResponse === true) {
-      navigate("/booking/confirmed", { state: reservation });
-    }
-  };
-
-  function handleDateChange(e) {
-    setReservationDate(e.target.value);
-    dispatch({ type: "update_times", selectedDate: e.target.value });
-  }
-
-  {
-    /* Validation for guests*/
-  }
-  const [guestsError, setGuestsError] = useState(false);
-
-  const handleGuestsChange = (e) => {
-    const value = e.target.value;
-    setGuestsError(value > 10 || value < 1);
-    setNumberOfGuests(value);
-  };
-
+  const [value, setValue] = useState(dayjs().add(1, "hour"));
+  const [age, setAge] = React.useState(20);
   return (
-    <form className="booking-form" onSubmit={handleSubmit}>
-      <label htmlFor="res-date">Choose date</label>
-      <input
-        type="date"
-        id="res-date"
-        value={reservationDate}
-        onChange={handleDateChange}
-        aria-label="Enter date mm/dd/yyyy"
-        required
-      />
-      <label htmlFor="res-time">Choose time</label>
-      <select
-        id="res-time"
-        value={reservationTime}
-        onChange={(e) => {
-          setReservationTime(e.target.value);
-        }}
-        aria-label="Select time HH:MM"
-      >
-        {state?.availableTimes?.map((time) => (
-          <option key={time} value={time} aria-label={time}>
-            {time}
-          </option>
-        ))}
-      </select>
-      <label htmlFor="guests">Number of guests</label>
-      <input
-        type="number"
-        placeholder="1"
-        min="1"
-        max="10"
-        id="guests"
-        value={numberOfGuests}
-        onChange={handleGuestsChange}
-        className={guestsError ? "input-error" : ""}
-        aria-label="Enter number of guests"
-      />
-      <label htmlFor="occasion">Occasion</label>
-      <select
-        id="occasion"
-        value={occasion}
-        onChange={(e) => {
-          setOccasion(e.target.value);
-        }}
-        aria-label="Select an Occasion"
-      >
-        <option aria-label="Birthday">Birthday</option>
-        <option aria-label="Anniversary">Anniversary</option>
-      </select>
-      <input
-        type="submit"
-        className="submit-button"
-        style={
-          !reservationDate
-            ? { backgroundColor: "#d9d9d9" }
-            : { backgroundColor: "#f4ce14" }
-        }
-        value="Make Your reservation"
-        disabled={!reservationDate}
-        aria-label="Submit your reservation"
-      />
+    <form className="booking-form" onSubmit={()=>{}}>
+        <Grid container spacing={2} >
+           <Grid item xs={6}>
+              <TextField
+                id="firstName"
+                label="First Name"
+                fullWidth
+                required
+              />
+            </Grid>
+            <Grid item xs={6}>
+              <TextField
+                id="lastName"
+                label="Last Name"
+                fullWidth
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <TextField
+                id="Email"
+                label="Email"
+                fullWidth
+              />
+            </Grid>
+            <Grid item xs={6}>
+            <LocalizationProvider dateAdapter={AdapterDayjs}>
+              {/* <DemoContainer components={['DatePicker', 'DatePicker']}> */}
+              <DateTimePicker
+                label="Select Date and Time"
+                value={value}
+                disablePast
+                // defaultValue={dayjs()}
+                onChange={(newValue) => setValue(newValue)}
+              />
+              {/* </DemoContainer> */}
+            </LocalizationProvider>
+            </Grid>
+            <Grid item xs={6}>
+            <FormControl fullWidth>
+            <InputLabel id="demo-simple-select-label">Age</InputLabel>
+            <Select
+            labelId="demo-simple-select-label"
+            id="demo-simple-select"
+            value={age}
+            label="Age"
+            onChange={()=>{}}
+            >
+          <MenuItem value={10}>Ten</MenuItem>
+          <MenuItem value={20}>Twenty</MenuItem>
+          <MenuItem value={30}>Thirty</MenuItem>
+          </Select>
+          </FormControl>
+            </Grid>
+            <Grid item xs={6}>
+            <FormControl fullWidth>
+            <InputLabel id="demo-simple-select-label">Age</InputLabel>
+            <Select
+            labelId="demo-simple-select-label"
+            id="demo-simple-select"
+            value={age}
+            label="Age"
+            onChange={()=>{}}
+            >
+          <MenuItem value={10}>Ten</MenuItem>
+          <MenuItem value={20}>Twenty</MenuItem>
+          <MenuItem value={30}>Thirty</MenuItem>
+          </Select>
+          </FormControl>
+            </Grid>
+            <Grid item xs={6}>
+            <TextField
+                id="firstName"
+                label="First Name"
+                fullWidth
+                multiline
+                maxRows={1}
+              />
+            </Grid>
+        </Grid>
+        <Button variant="contained">Contained</Button>
     </form>
   );
 }
