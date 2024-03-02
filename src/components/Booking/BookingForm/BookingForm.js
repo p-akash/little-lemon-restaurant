@@ -1,36 +1,61 @@
 import React, { useState } from "react";
 import { Grid, TextField, Select, InputLabel, MenuItem, FormControl, Button } from "@mui/material";
 import dayjs from 'dayjs';
-// import { DemoContainer } from '@mui/x-date-pickers/internals/demo';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { DateTimePicker } from '@mui/x-date-pickers/DateTimePicker';
+import validator from 'validator';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
-import "./BookingForm.css";
 
-function BookingForm({ dispatch, state }) {
-  const [value, setValue] = useState(dayjs().add(1, "hour"));
-  const [age, setAge] = React.useState(20);
-  const [booking, setBooking] = useState (
-    {
-      firstName: " ",
-      lastName:"",
-      email:"",
-      dateAndTime: dayjs().add(1, "hour"),
-      numberOfPeople:0,
-      occsion:"",
-      specialRequest:""
-    }
-  )
+function BookingForm() {
+  const initalBooking =  {
+    firstName: "",
+    lastName:"",
+    email:"",
+    dateAndTime: dayjs().add(1, "hour"),
+    numberOfPeople:"1",
+    occsion:"",
+    specialRequest:""
+  }
+  const initialErrorMessage =  {
+    firstName: "",
+    lastName:"",
+    email:"",
+    dateAndTime:"",
+    numberOfPeople:"",
+  }
+  const [booking, setBooking] = useState (initalBooking)
+  const [errorMessage, setErrorMessage] = useState(initialErrorMessage)
   const handalSubmit = () => {
-    alert("Success")
+    let error = {}
+    if(validator.isEmpty(booking.firstName)){
+      error = {...error, firstName: "Please enter your First Name"}
+    }
+    if(validator.isEmpty(booking.lastName)){
+      error = {...error, lastName: "Please enter your Last Name"}
+    }
+    if(validator.isEmpty(booking.email) || !validator.isEmail(booking.email)){
+      error = {...error, email: "Please the valid email address"}
+    }
+    if (Object.keys(error).length === 0){
+      toast("Yor booking is confirmed");
+      setBooking(initalBooking)
+      setErrorMessage(initialErrorMessage)
+    } else{
+      setErrorMessage(error)
+    }
   }
   return (
-    <form className="booking-form">
+    <>
+      <ToastContainer />
+    <form className="booking-form"> 
       <Grid container spacing={2} >
         <Grid item xs={6}>
           <TextField
             id="firstName"
+            error={errorMessage.firstName !== ""}
             label="First Name"
             value={booking.firstName}
             onChange={(e)=>{
@@ -38,6 +63,7 @@ function BookingForm({ dispatch, state }) {
               ...booking,
               firstName: e.target.value })
             }}
+            helperText={errorMessage.firstName}
             fullWidth
             required
           />
@@ -53,6 +79,9 @@ function BookingForm({ dispatch, state }) {
               lastName: e.target.value })
             }}
             fullWidth
+            error={errorMessage.lastName !== ""}
+            helperText={errorMessage.lastName}
+            required
           />
         </Grid>
         <Grid item xs={12}>
@@ -66,6 +95,9 @@ function BookingForm({ dispatch, state }) {
               email: e.target.value })
             }}
             fullWidth
+            error={errorMessage.email !== ""}
+            helperText={errorMessage.email}
+            required
           />
         </Grid>
         <Grid item xs={6}>
@@ -101,13 +133,13 @@ function BookingForm({ dispatch, state }) {
                 }
               ) }}
             >
-              <MenuItem value={1}>one</MenuItem>
-              <MenuItem value={2}>Two</MenuItem>
-              <MenuItem value={3}>Three</MenuItem>
-              <MenuItem value={4}>Four</MenuItem>
-              <MenuItem value={5}>Five</MenuItem>
-              <MenuItem value={6}>Six</MenuItem>
-              <MenuItem value={7}>Seven+</MenuItem>
+              <MenuItem value={"1"}>one</MenuItem>
+              <MenuItem value={"2"}>Two</MenuItem>
+              <MenuItem value={"3"}>Three</MenuItem>
+              <MenuItem value={"4"}>Four</MenuItem>
+              <MenuItem value={"5"}>Five</MenuItem>
+              <MenuItem value={"6"}>Six</MenuItem>
+              <MenuItem value={"7"}>Seven+</MenuItem>
             </Select>
           </FormControl>
         </Grid>
@@ -151,6 +183,7 @@ function BookingForm({ dispatch, state }) {
       </Grid>
 
     </form>
+    </>
   );
 }
 
