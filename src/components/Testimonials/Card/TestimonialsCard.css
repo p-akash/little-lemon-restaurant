@@ -4,6 +4,7 @@
   background-color: #edefee;
   height: 150px;
   padding: 10px;
+  border-radius: 12px;
 }
 
 .testimonials-card > div:nth-child(2) {
