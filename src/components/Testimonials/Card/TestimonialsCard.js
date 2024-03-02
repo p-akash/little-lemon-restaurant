@@ -8,12 +8,12 @@ function TestimonialsCard({ name, stars, comment, photo }) {
   return (
     <div className="testimonials-card">
       <div>
+        <p>{comment}</p>
+      </div>
+      <div style={{textAlign:"center"}}>
         {Array.from({ length: stars }, (_, i) => (
           <FontAwesomeIcon key={i} icon={faStar} color="#f4ce14" />
         ))}
-      </div>
-      <div>
-        <p>{comment}</p>
       </div>
       <div className="testimonials-name">
         <img src={photo} alt="Testimonial person" />

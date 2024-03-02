@@ -65,7 +65,7 @@ function Footer() {
             <div>
               <ul>
                 <li>
-                  <p>Chicago, IL 60000-0000</p>
+                  <p>Leicester, IL 60000-0000</p>
                 </li>
                 <li></li>
                 <li>

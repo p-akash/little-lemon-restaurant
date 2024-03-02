@@ -27,7 +27,7 @@ function Hero() {
           <div id="Hero" className="hero-content">
             <div className="hero-left">
               <h1>Little Lemon</h1>
-              <h2>Chicago</h2>
+              <h2>Leicester</h2>
               <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                 Praesent euismod condimentum ante finibus consequat. Donec

@@ -1,27 +1,27 @@
 import React from "react";
-import image from "../../../assets/lemon.jpg";
+
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTruck } from "@fortawesome/free-solid-svg-icons";
 
 import "./SpecialCard.css";
 
-function SpecialCard() {
+function SpecialCard(props) {
   return (
     <div className="card">
-      <img src={image} />
+      <img src={props.imageFood} alt="cake"/>
       <div className="card-content">
         <div className="card-title">
-          <h4>Lemon pie</h4>
-          <p className="price">$ 5.99</p>
+          <h4>{props.name}</h4>
+          <p className="price">£ {props.price}</p>
         </div>
         <p>
-          Our Lemon Pie is the perfect combination of tangy and sweet. Made with
-          fresh lemons, this pie has a light and creamy filling that is nestled
+          Our {props.name} is the perfect combination of tangy and sweet. Made with
+          fresh {props.name}, this pie has a light and creamy filling that is nestled
           in a flaky, buttery crust.
         </p>
         <h4 style={{ marginTop: "1em" }}>
-          Order a Delivery{" "}
+          Order a Online{" "}
           <FontAwesomeIcon
             icon={faTruck}
             size={"sm"}

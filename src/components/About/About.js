@@ -9,7 +9,7 @@ function About() {
         <div className="about-grid">
           <div className="about-left">
             <h1>Little Lemon</h1>
-            <h2>Chicago</h2>
+            <h2>Chicag</h2>
             <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent
               euismod condimentum ante finibus consequat. Donec vitae nisl

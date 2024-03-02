@@ -11,7 +11,7 @@ function Testimonials() {
     <div id="testimonials" className="testimonials-bg">
       <div className="container">
         <div className="testimonials">
-          <h2>Testimonials</h2>
+          <h1>Testimonials</h1>
           <div className="testimonials-grid">
             <TestimonialsCard
               name="Carolina Manuela"
@@ -20,7 +20,7 @@ function Testimonials() {
               comment={"The food at Little Lemon is always delicious and fresh"}
             />
             <TestimonialsCard
-              name="Diego"
+              name="Ram"
               photo={person2}
               stars="5"
               comment={
@@ -28,7 +28,7 @@ function Testimonials() {
               }
             />
             <TestimonialsCard
-              name="Yara Duarte"
+              name="Vuara sdrte"
               photo={person3}
               stars="4"
               comment={
@@ -36,7 +36,7 @@ function Testimonials() {
               }
             />
             <TestimonialsCard
-              name="Dinis do Guna"
+              name="Ainis do suna"
               photo={person4}
               stars="5"
               comment={
