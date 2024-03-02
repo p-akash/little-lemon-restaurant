@@ -12,6 +12,10 @@
   padding: 2.5rem 0 2.5rem 0;
   min-width: 300px;
 }
+h2{
+  margin: 20px auto;
+  justify-content: center;
+}
 
 .booking-form {
   background-color: #edefee;
@@ -31,10 +35,8 @@
 }
 
 .booking-right {
-  padding: 2.5rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  padding: 2.5rem 0 2.5rem 1rem;
+  text-align: center;
 }
 
 .booking img {

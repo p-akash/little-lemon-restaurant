@@ -14,14 +14,14 @@ function Reservation() {
             </div>
           </div>
           <div className="booking-right">
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in
-              purus vitae neque commodo pulvinar. Nunc venenatis quis lorem ac
-              varius. Curabitur justo est, pretium eget metus at, auctor rhoncus
-              elit. Donec eget massa sem. Pellentesque pellentesque enim et
-              neque scelerisque, eget scelerisque quam vulputate. Lorem ipsum
-              dolor sit amet, consectetur adipiscing elit.
-            </p>
+            <h1>Opaning Times</h1>
+            <h2>Monday: 5pm-10pm </h2>
+            <h2>Tuesday: Closed</h2>
+            <h2>Wednesday/Thursday: 5pm-10pm</h2>
+            <h2>Friday: 2:30pm-10:30pm</h2>
+            <h2>Sat: 12pm-1:45pm</h2>
+            <h2>Saturday/Sunday: 12pm-10:30pm</h2>
+
           </div>
         </div>
       </div>

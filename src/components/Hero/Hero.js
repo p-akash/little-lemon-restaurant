@@ -1,10 +1,8 @@
 import React, { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 import image from "../../assets/restauranfood.jpg";
 import "./Hero.css";
 
 function Hero() {
-  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
